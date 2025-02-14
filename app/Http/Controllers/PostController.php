@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\UpdateRequest;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -34,9 +35,10 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(UpdateRequest $request, Post $post)
     {
-        //
+        $post->update($request->all());
+        return "UPDATED NA BOI";
     }
 
     /**
@@ -44,6 +46,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return "DELETED NA KOPAL";
     }
 }
